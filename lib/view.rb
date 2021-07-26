@@ -2,7 +2,9 @@ class View
 
   def display(recipes)
     recipes.each_with_index do |recipe, index|
-      puts "#{index + 1} - #{recipe.name}: #{recipe.description}"
+      # condiition ? code_truthy : code_falsey
+      status = recipe.completed? ? "X" : " "
+      puts "#{index + 1} [#{status}] -  #{recipe.name}: #{recipe.description}"
     end
 
   end
@@ -14,9 +16,9 @@ class View
   end
 
   def ask_for_index
-    puts "what is the index you want to del"
+    puts "what is the index?"
     print ">"
-    gets.chomp.to_i -1
+    gets.chomp.to_i - 1
   end
 
 end
